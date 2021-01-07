@@ -43,7 +43,6 @@ router.register(r'articles', wikiViews.ArticleViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^coupon/', include('coupon.urls')),
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^swagger(?P<format>\.json|\.yaml)$',
