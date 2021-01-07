@@ -13,15 +13,15 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
+from django.conf.urls import include, url
 from django.contrib import admin
 from django.urls import include, path
-from rest_framework import routers
-from quickstart import views as quickstartViews
-from wiki import views as wikiViews
-from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-from rest_framework import permissions
+from drf_yasg.views import get_schema_view
+from quickstart import views as quickstartViews
+from rest_framework import permissions, routers
+from rest_framework.authtoken.views import obtain_auth_token
+from wiki import views as wikiViews
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -45,6 +45,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('api-token-auth/', quickstartViews.CustomAuthToken.as_view(),
+         name='CustomAuthToken'),
     url(r'^swagger(?P<format>\.json|\.yaml)$',
         schema_view.without_ui(cache_timeout=0), name='schema-json'),
     url(r'^swagger/$', schema_view.with_ui('swagger',
