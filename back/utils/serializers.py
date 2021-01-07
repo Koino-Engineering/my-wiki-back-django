@@ -7,4 +7,4 @@ class BaseModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = BaseModel
         fields = '__all__'
-        read_only_fields = ('created_at')
+        read_only_fields = ('created_at', 'create_user')
