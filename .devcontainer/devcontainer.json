@@ -11,11 +11,11 @@
     "workspaceFolder": "/src",
     // コンテナ内で使用する拡張機能
     "extensions": [
-        // "ms-python.python",
-        // "coenraads.bracket-pair-colorizer",
-        // "sohamkamani.code-eol",
-        // "batisteo.vscode-django",
-        // "oderwat.indent-rainbow",
-        // "ms-ceintl.vscode-language-pack-ja"
+        "ms-python.python",
+        "coenraads.bracket-pair-colorizer",
+        "sohamkamani.code-eol",
+        "batisteo.vscode-django",
+        "oderwat.indent-rainbow",
+        "ms-ceintl.vscode-language-pack-ja"
     ]
 }
