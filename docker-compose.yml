@@ -3,15 +3,18 @@ volumes:
     dbdata:
 services:
   back:
-    image: python:3
+    build: ./
     volumes:
       - ./:/src
     working_dir: /src/back
-    command: bash -c "pip install -U -r requirements.txt && python manage.py migrate && python manage.py runserver 0.0.0.0:5000"
+    command: ../wait-for-postgres.sh
     ports: 
       - 5000:5000
     depends_on:
       - db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
   db:
     image: postgres:13
     volumes: 
