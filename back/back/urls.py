@@ -43,7 +43,7 @@ router.register(r'articles', wikiViews.ArticleViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    path('', include(router.urls)),
+    path('api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('api-token-auth/', quickstartViews.CustomAuthToken.as_view(),
          name='CustomAuthToken'),
