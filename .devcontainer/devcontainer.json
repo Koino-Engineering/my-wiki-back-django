@@ -8,7 +8,7 @@
     // コンテナのサービス名
     "service": "back",
     // VSCodeで開くコンテナ内のパス
-    "workspaceFolder": "/src/back",
+    "workspaceFolder": "/src",
     // コンテナ内で使用する拡張機能
     "extensions": [
         "ms-python.python",
